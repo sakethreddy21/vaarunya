@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '/Vaarunya_cropped_bg.png'; // Adjust the path to your logo file
+import logo from '../../Vaarunya_cropped_bg.png'; // Adjust the path to your logo file
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

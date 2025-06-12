@@ -1,10 +1,10 @@
 import { ArrowRight, Wheat, Milk, Coffee, Mountain, Beef, Fish, Apple, Palette, Flame ,  ShoppingCart, FileText, CheckCircle, Package, Truck, MapPin, ArrowDown} from 'lucide-react';
-import agro from '/product_categories_images/agro_commodities_logo.png';
-import coffee from '/product_categories_images/coffee_logo.png';
-import dairy from '/product_categories_images/dairy_pdts_logo.png';
-import fruits from '/product_categories_images/fruits_and_veg_logo.png'
-import seafood from '/product_categories_images/seafood_logo.png'
-import spices from '/product_categories_images/spices_logo.png'
+import agro from '../../product_categories_images/agro_commodities_logo.png';
+import coffee from '../../product_categories_images/coffee_logo.png';
+import dairy from '../../product_categories_images/dairy_pdts_logo.png';
+import fruits from '../../product_categories_images/fruits_and_veg_logo.png'
+import seafood from '../../product_categories_images/seafood_logo.png'
+import spices from '../../product_categories_images/spices_logo.png'
 
 const ProductsSection = () => {
   const productCategories = [
