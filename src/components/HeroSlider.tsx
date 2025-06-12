@@ -5,41 +5,43 @@ import { useState, useEffect } from 'react';
 import slide2 from '/carousel_images/Agro_commodities_img.png';
 import slide1 from '/carousel_images/cargo_img.png';
 import slide5 from '/carousel_images/coffee_img.png';
-import slide4 from '/carousel_images/spices_img.png'
-import slide3 from '/carousel_images/fruits_and_veg _mg.png'
+import slide4 from '/carousel_images/spices_img.png';
+import slide3 from '/carousel_images/fruits_and_veg_img.png';
 
 const HeroSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  // Minimum swipe distance (in pixels) to trigger a slide change
+  const minSwipeDistance = 50;
 
   const slides = [
     {
-      image: slide1, // Local image
+      image: slide1,
       title: 'Global Export Excellence',
       subtitle: 'Connecting businesses worldwide with premium quality products',
     },
     {
-      image: slide2, // Local image
+      image: slide2,
       title: 'Quality & Reliability',
       subtitle: 'Your trusted partner in international trade and commerce',
     },
     {
-      image: slide3, // Local image
+      image: slide3,
       title: 'Innovation in Export',
       subtitle: 'Leading the way with cutting-edge logistics solutions',
     },
     {
-      image: slide4, // Local image
+      image: slide4,
       title: 'Innovation in Export',
       subtitle: 'Leading the way with cutting-edge logistics solutions',
     },
     {
-      image: slide5, // Local image
+      image: slide5,
       title: 'Innovation in Export',
       subtitle: 'Leading the way with cutting-edge logistics solutions',
     },
-
-    // Optionally, you can mix with external images
-   
   ];
 
   useEffect(() => {
@@ -49,16 +51,48 @@ const HeroSlider = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-// const goToPreviousSlide = () => {
-//   setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-// };
+  // Handle touch start
+  const onTouchStart = (e:any) => {
+    setTouchEnd(null); // Reset touchEnd
+    setTouchStart(e.targetTouches[0].clientX);
+  };
 
-// const goToNextSlide = () => {
-//   setCurrentSlide((prev) => (prev + 1) % slides.length);
-// };
+  // Handle touch move
+  const onTouchMove = (e:any) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  // Handle touch end
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setCurrentSlide((prev) => (prev + 1) % slides.length); // Next slide
+    }
+    if (isRightSwipe) {
+      setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length); // Previous slide
+    }
+  };
+
+  // const goToPreviousSlide = () => {
+  //   setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  // };
+
+  // const goToNextSlide = () => {
+  //   setCurrentSlide((prev) => (prev + 1) % slides.length);
+  // };
 
   return (
-    <section id="home" className="relative h-screen overflow-hidden">
+    <section
+      id="home"
+      className="relative h-screen overflow-hidden"
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+    >
       {slides.map((slide, index) => (
         <div
           key={index}
@@ -91,18 +125,18 @@ const HeroSlider = () => {
       </div>
 
       {/* Navigation Arrows */}
-    {/* <button
-      onClick={goToPreviousSlide}
-      className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white z-10 p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all duration-300"
-    >
-      <ChevronLeft size={32} />
-    </button>
-    <button
-      onClick={goToNextSlide}
-      className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white z-10 p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all duration-300"
-    >
-      <ChevronRight size={32} />
-    </button> */}
+      {/* <button
+        onClick={goToPreviousSlide}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white z-10 p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all duration-300"
+      >
+        <ChevronLeft size={32} />
+      </button>
+      <button
+        onClick={goToNextSlide}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white z-10 p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 transition-all duration-300"
+      >
+        <ChevronRight size={32} />
+      </button> */}
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
