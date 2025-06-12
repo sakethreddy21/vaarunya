@@ -1,4 +1,3 @@
-import React from 'react';
 import { Globe, Award, Users, Truck } from 'lucide-react';
 
 const AboutSection = () => {
@@ -36,7 +35,7 @@ const AboutSection = () => {
 
         {/* Why Varunaya Section */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-secondary mb-4">Why Choose Varunaya?</h2>
+          <h2 className="text-4xl font-bold text-secondary mb-4">Why Choose Vaarunya?</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We combine expertise, reliability, and innovation to deliver exceptional export solutions
             that drive your business forward in the global marketplace.

@@ -2,6 +2,7 @@
 import Navbar from './components/Navbar';
 import HeroSlider from './components/HeroSlider';
 import AboutSection from './components/AboutSection';
+import ProductsSection from './components/ProductsSection';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Navbar />
       <HeroSlider />
       <AboutSection />
+      <ProductsSection />
     </div>
   );
 }

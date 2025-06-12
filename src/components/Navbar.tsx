@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import logo from '/Vaarunya_logo-removebg-preview.png'; // Adjust the path to your logo file
+import logo from '/Vaarunya_cropped_bg.png'; // Adjust the path to your logo file
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,14 +28,14 @@ const Navbar = () => {
         isScrolled ? 'bg-white shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 py-2 ml-[-40px]"> {/* Added ml-[-8px] to shift logo left */}
+          <div className="flex-shrink-0  ml-[-10px]"> {/* Added ml-[-8px] to shift logo left */}
             <img
               src={logo}
               alt="Vaarunya Logo"
-              className="h-32 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </div>
 
@@ -56,6 +56,13 @@ const Navbar = () => {
               }`}
             >
               About
+            </button>
+            <button
+              onClick={() => scrollToSection('products')}
+              className={`px-4 py-2 text-base font-medium uppercase tracking-wide transition-colors duration-300 hover:text-primary ${
+                isScrolled ? 'text-gray-800' : 'text-white'
+              }`} >
+              Products
             </button>
           </div>
 
@@ -90,6 +97,12 @@ const Navbar = () => {
               className="block w-full text-left px-4 py-2 text-base font-medium text-gray-800 hover:text-primary hover:bg-gray-100 rounded-md transition-colors duration-300"
             >
               About
+            </button>
+            <button
+              onClick={() => scrollToSection('products')}
+              className="block w-full text-left px-4 py-2 text-base font-medium text-gray-800 hover:text-primary hover:bg-gray-100 rounded-md transition-colors duration-300"
+          >
+              Products
             </button>
           </div>
         </div>
