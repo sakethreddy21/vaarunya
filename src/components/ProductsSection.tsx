@@ -164,7 +164,7 @@ const ProductsSection = () => {
             {/* Product Processing Steps - Theme Consistent */}
             <div className="mb-20">
               <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold text-secondary mb-6">Our Processing Journey</h2>
+                <h2 className="text-4xl font-bold text-secondary mb-6">Order Processing Journey</h2>
                 <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
                   Experience our streamlined 6-step process that ensures quality, transparency, 
                   and timely fulfillment of your export requirements.
